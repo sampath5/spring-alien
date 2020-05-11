@@ -1,6 +1,6 @@
 pipeline{
   environment {
-    registry = "sampath5/sample-springalien"
+    registry = "sampath5/springalien"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
@@ -34,9 +34,8 @@ pipeline{
             }
       stage('Deploying into k8s'){
         steps{
-          sh 'kubectl create deployment hello-spring --image=sampath5/docker-spring'
-          sh 'kubectl expose deployment hello-spring --type=NodePort --port=8080'
-          sh 'minikube service hello-spring'
+          sh 'kubectl create deployment springalien --image=sampath5/springalien'
+          sh 'kubectl expose deployment springalien --type=NodePort --port=8080'
         }
       }
       }
