@@ -1,6 +1,6 @@
 pipeline{
   environment {
-    registry = "sampath5/docker-spring"
+    registry = "sampath5/sample-springalien"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
