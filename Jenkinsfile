@@ -23,7 +23,7 @@ pipeline{
                 }
              }
           }
-          stage('Deploy Image') {
+          stage('Push Image') {
               steps{
                   script {
                       docker.withRegistry( '', registryCredential ) {
@@ -32,5 +32,12 @@ pipeline{
                   }
               }
             }
+      stage('Deploying into k8s'){
+        steps{
+          sh 'kubectl create deployment hello-spring --image=sampath5/docker-spring'
+          sh 'kubectl expose deployment hello-spring --type=NodePort --port=8080'
+          sh 'minikube service hello-spring'
+        }
+      }
       }
 }
