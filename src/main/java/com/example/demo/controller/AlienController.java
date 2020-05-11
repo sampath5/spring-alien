@@ -36,7 +36,7 @@ public class AlienController {
 		System.out.println(alien);
 		logger.info("1st log message");
 		repo.save(alien);
-		return "Successful";
+		return "Successfully added";
 	}
 	
 	@RequestMapping("/getAlien")
