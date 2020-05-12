@@ -34,8 +34,8 @@ pipeline{
             }
       stage('Deploying into k8s'){
         steps{
-          sh 'kubectl create deployment springalien --image=sampath5/springalien'
-          sh 'kubectl expose deployment springalien --type=NodePort --port=8080'
+          sh 'kubectl apply -f deployment.yml'
+          sh 'kubectl apply -f service.yml'
         }
       }
       }
