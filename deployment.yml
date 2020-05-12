@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: demo
-  name: demo
+    app: demospringalien
+  name: demospringalien
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo
+      app: demospringalien
   template:
     metadata:
       labels:
-        app: demo
+        app: demospringalien
     spec:
       containers:
       - image: sampath5/springalien
-        name: springalien
+        name: demospringalien
         
